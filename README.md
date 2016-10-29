@@ -1,6 +1,13 @@
 # ruby-ffi-opencl
 Simple ruby script interacting with a C lib using OpenCL.
 
+## Motivations
+With this project, I expect:
+
+ - learn more about C and C++
+ - learn more about OpenCL and parallel programming
+ - learn how to use Ruby FFI
+
 ## Dependencies
 ### OpenCL
 This project depends on the AMD APP SDK 2.9.1. It can be downloaded from [here][amd-app-sdk].
