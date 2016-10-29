@@ -11,9 +11,8 @@ int main()
 
   for(decltype(platforms) i = 0; i != platforms; i++)
   {
-    char *name = get_platform_name(i);
+    auto name = get_platform_name(i);
     cout << name << endl;
-    free(name);
   }
 
   return 0;

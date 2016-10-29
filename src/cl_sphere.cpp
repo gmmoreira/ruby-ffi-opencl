@@ -1,30 +1,23 @@
 #include "cl_sphere.h"
+#include "cl_platform.hpp"
+#include <cstring>
+
+using std::string;
+using std::vector;
+using std::strcpy;
 
 cl_uint get_platforms_size()
 {
-  cl_uint platforms_size;
-  clGetPlatformIDs(0, NULL, &platforms_size);
-
-  return platforms_size;
+  return getPlatformsSize();
 }
 
-char * get_platform_name(cl_uint position)
+const char * get_platform_name(cl_uint position)
 {
-  auto platforms_size = get_platforms_size();
+  auto platforms = getPlatforms();
+  auto name = platforms[position].name;
+  auto c_name = (char *) malloc(sizeof(char) * (name.size() + 1));
 
-  cl_platform_id *platforms_id;
-  platforms_id = (cl_platform_id *) malloc(sizeof(&platforms_id) * platforms_size);
+  strcpy(c_name, name.c_str());
 
-  clGetPlatformIDs(1, platforms_id, NULL);
-
-  size_t size;
-
-  clGetPlatformInfo(platforms_id[position], CL_PLATFORM_NAME, 0, NULL, &size);
-
-  char *name;
-  name = (char *) malloc(sizeof(&name) * size);
-
-  clGetPlatformInfo(platforms_id[position], CL_PLATFORM_NAME, size, (void *) name, NULL);
-
-  return name;
+  return c_name;
 }
