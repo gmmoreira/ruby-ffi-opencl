@@ -1,28 +1,30 @@
 #include "cl_sphere.h"
 
-cl_uint getNumberPlatforms()
+cl_uint get_platforms_size()
 {
-  cl_uint numPlatforms;
-  clGetPlatformIDs(0, NULL, &numPlatforms);
+  cl_uint platforms_size;
+  clGetPlatformIDs(0, NULL, &platforms_size);
 
-  return numPlatforms;
+  return platforms_size;
 }
 
-char * getPlatformName(cl_uint position)
+char * get_platform_name(cl_uint position)
 {
-  auto platformsSize = getNumberPlatforms();
+  auto platforms_size = get_platforms_size();
 
-  auto platformId = (cl_platform_id *) malloc(sizeof(cl_platform_id) * platformsSize);
+  cl_platform_id *platforms_id;
+  platforms_id = (cl_platform_id *) malloc(sizeof(&platforms_id) * platforms_size);
 
-  clGetPlatformIDs(1, platformId, NULL);
+  clGetPlatformIDs(1, platforms_id, NULL);
 
   size_t size;
 
-  clGetPlatformInfo(platformId[position], CL_PLATFORM_NAME, 0, NULL, &size);
+  clGetPlatformInfo(platforms_id[position], CL_PLATFORM_NAME, 0, NULL, &size);
 
-  auto name = (char *) malloc(sizeof(char) * size);
+  char *name;
+  name = (char *) malloc(sizeof(&name) * size);
 
-  clGetPlatformInfo(platformId[position], CL_PLATFORM_NAME, size, (void *) name, NULL);
+  clGetPlatformInfo(platforms_id[position], CL_PLATFORM_NAME, size, (void *) name, NULL);
 
   return name;
 }

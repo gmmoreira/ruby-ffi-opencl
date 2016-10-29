@@ -1,12 +1,12 @@
-#ifndef _CL_SPHERE_H
-#define _CL_SPHERE_H
+#ifndef CL_SPHERE_H
+#define CL_SPHERE_H
 
 #include <CL/cl.h>
 
 extern "C" {
-  cl_uint getNumberPlatforms();
+  cl_uint get_platforms_size();
 
-  char * getPlatformName(cl_uint);
+  char * get_platform_name(cl_uint);
 }
 
 #endif
