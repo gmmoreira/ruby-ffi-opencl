@@ -24,7 +24,7 @@ find_library( OPENCL_LIBRARIES
 include_directories(${OPENCL_INCLUDE_DIRS})
 include_directories("${CMAKE_CURRENT_SOURCE_DIR}/include")
 
-add_library(${LIB_NAME} SHARED "src/cl_sphere.cpp" "src/cl_platform.cpp")
+add_library(${LIB_NAME} SHARED "src/cl_sphere.cpp" "src/cl_platform.cpp" "src/cl_device.cpp")
 target_link_libraries(${LIB_NAME} ${OPENCL_LIBRARIES})
 
 add_executable(${EXE_NAME} "src/program.cpp")

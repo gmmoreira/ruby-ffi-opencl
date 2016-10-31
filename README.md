@@ -8,6 +8,8 @@ With this project, I expect:
  - learn more about OpenCL and parallel programming
  - learn how to use Ruby FFI
 
+By any means the code is optimized and may have a lot of mistakes. The only purpose of this project is to learn and share what my progress so far.
+
 ## Dependencies
 ### OpenCL
 This project depends on the AMD APP SDK 2.9.1. It can be downloaded from [here][amd-app-sdk].

@@ -6,9 +6,11 @@
 extern "C" {
   cl_uint get_platforms_size();
 
-  const char * get_platform_name(cl_uint);
+  cl_platform_id get_platform(cl_uint);
 
-  cl_uint get_devices_size(cl_uint);
+  const char * get_platform_name(cl_platform_id);
+
+  cl_uint get_devices_size(cl_platform_id);
 }
 
 #endif
